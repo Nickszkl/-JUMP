@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>JUMP</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      overflow-x: hidden;
+    }
+
+    .card-start {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+
+    .card-animate {
+      transition: all 0.8s ease-in-out;
+    }
+
+    .card-show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .text-slide-in {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.8s ease-in-out;
+    }
+
+    .text-show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .image-left {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(to left, rgba(0, 0, 0, 0.85), rgba(15, 122, 216, 0.099)), url('JUMP3.jpg');
+      background-size: cover;
+      background-position: center;
+      z-index: 0;
+      opacity: 0;
+      transition: opacity 0.5s ease-in-out;
+    }
+
+    @media (min-width: 1024px) {
+      .image-left {
+        width: 50%;
+      }
+    }
+
+    .image-left-show {
+      opacity: 1;
+    }
+
+    .blue-gradient {
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(to right, #4ba5ffd1, #000000bc);
+      background-size: 100% 100%;
+      z-index: 0;
+      opacity: 0.8;
+    }
+  </style>
+</head>
+
+<body class="relative bg-black text-white min-h-screen">
+
+  <!-- Botão Voltar -->
+  <a href="index.html" class="absolute top-4 left-4 z-20 bg-white text-black px-4 py-2 rounded hover:bg-gray-200 transition">
+    ← Voltar
+  </a>
+
+  <!-- Imagens de fundo -->
+  <div id="bg-image" class="image-left"></div>
+  <div class="blue-gradient"></div>
+
+  <!-- Conteúdo -->
+  <main class="relative z-10 w-full min-h-screen flex flex-col lg:flex-row items-center justify-center px-4 py-20 space-y-8 lg:space-y-0 lg:space-x-16">
+    <!-- CARD -->
+      <div id="card" class="bg-white text-black rounded-xl shadow-lg w-full max-w-xs card-start card-animate">
+            <img src="Coordenação de Patrimônio e Natureza.jpg" alt="Coordenador 6" class="w-full h-64 object-cover rounded-t-xl">
+        <div class="p-4">
+            <h3 class="text-xl font-semibold">Gaby & Allan</h3>
+            <p class="text-sm text-gray-600">Coordenação de Patrimônio e Natureza</p>
+        </div>
+      </div>
+      
+      <!-- DESCRIÇÃO -->
+      <article id="description" class="max-w-xl text-gray-200 text-slide-in mt-6 lg:mt-0 px-2 text-center lg:text-left z-10">
+        <h1 class="text-3xl font-bold mb-4">Coordenação de Patrimônio e Natureza</h1>
+        <p class="text-base leading-relaxed">
+        Cuida do zelo e da preservação do ambiente escolar. Deve promover campanhas de conscientização sobre higiene, conservação do patrimônio público e respeito aos espaços comuns. Também atua em projetos voltados à sustentabilidade, como reciclagem, hortas comunitárias e redução de desperdícios, podendo estabelecer parcerias com organizações ambientais para fortalecer as ações ecológicas dentro da escola.
+        </p>
+        <div class="text-center mt-4">
+            <a href="Coordenação.html" style="background-color: #00bfff;" class="text-white px-6 py-3 rounded-full font-semibold hover:opacity-90 transition mx-auto inline-block">Mais Coordenações</a>
+        </div>
+      </article>
+  </main>
+
+  <script>
+    window.addEventListener('DOMContentLoaded', () => {
+      const card = document.getElementById('card');
+      const desc = document.getElementById('description');
+      const bg = document.getElementById('bg-image');
+
+      setTimeout(() => {
+        card.classList.add('card-show');
+        bg.classList.add('image-left-show');
+      }, 300);
+
+      setTimeout(() => {
+        desc.classList.add('text-show');
+      }, 600);
+    });
+  </script>
+</body>
+</html>

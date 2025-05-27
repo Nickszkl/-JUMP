@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="pt-br" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JUMP</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+     }
+     .fade-up {
+    animation: fadeUp 0.8s ease-out forwards;
+    animation-fill-mode: forwards;
+    }
+    .blackhole {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    perspective: 300px;
+    overflow: hidden;
+    z-index: 0;
+    background: radial-gradient(ellipse at center, #081b38 10%, #265bb6 100%);
+    }
+    .core {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 80px;
+    height: 80px;
+    margin: -40px;
+    background: radial-gradient( #0052e0 100%);
+    border-radius: 50%;
+    box-shadow: 0 0 40px 20px rgba(0, 123, 255, 0.1);
+    z-index: 1;
+    animation: corePulse 0.8s ease-in-out infinite;
+    }
+    @keyframes corePulse {
+    0%, 100% {
+        box-shadow: 0 0 40px 20px rgba(0, 123, 255, 0.1);
+    }
+    50% {
+        box-shadow: 0 0 60px 30px rgba(0, 123, 255, 0.2);
+    }
+    }
+    .ring {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 200px;
+    height: 200px;
+    margin: -100px;
+    border-radius: 50%;
+    border: 2px solid transparent;
+    border-image: conic-gradient(from 0deg, #00bfff, #1e90ff, #4169e1, #00bfff) 1;
+    opacity: 0;
+    transform-style: preserve-3d;
+    
+    animation-fill-mode: both;
+    filter: blur(1px) drop-shadow(0 0 6px rgba(0, 123, 255, 0.1));
+    transform-origin: 52% 48%;
+    }
+    @keyframes suckIn {
+    0% {
+        transform: translateZ(var(--z)) rotateY(var(--rotateY)) rotateX(var(--rotateX)) scale(0.8);
+        opacity: 0;
+    }
+    10% {
+        opacity: 0.3;
+    }
+    40% {
+        opacity: 0.6;
+    }
+    90% {
+        opacity: 0.4;
+    }
+    100% {
+        transform: translateZ(600px) rotateY(var(--rotateYEnd)) rotateX(var(--rotateXEnd)) scale(2);
+        opacity: 0;
+    }
+    }
+  </style>
+</head>
+    <body class="bg-black text-white relative min-h-screen">
+<section class="relative h-screen flex items-center justify-center text-center px-4 overflow-hidden z-10">
+  <!-- Imagem de fundo -->
+  <div class="absolute inset-0 z-0">
+    <img src="JUMP2.png" alt="Background" class="absolute inset-0 w-full h-full object-cover object-center opacity-70">
+    <div class="absolute inset-0 bg-black/20"></div>
+  </div>
+
+  <!-- Navbar fixa -->
+  <nav class="absolute top-0 left-0 w-full flex justify-between items-center px-6 py-4 bg-black/70 z-20 backdrop-blur-md">
+    <div class="text-white text-xl font-bold">JUMP</div>
+  </nav>
+
+  <!-- Conteúdo centralizado -->
+  <div class="relative z-10 max-w-4xl mx-auto fade-up">
+    <p class="text-lg mb-2">Bem-vindo a</p>
+    <h1 class="text-6xl font-extrabold mb-4">JUMP</h1>
+    <p class="text-lg italic mb-8">
+      Mais que um grêmio, somos um movimento.<br>
+      "Se é para mudar, que seja com coragem. Se é para agir, que seja com a<br>
+      JUMP - Nossa luta é por voz, vez e mais mudanças."
+    </p>
+    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+      <a href="#sobre" class="bg-white text-black px-6 py-3 rounded-full font-semibold hover:bg-gray-200 transition">Saiba mais</a>
+      <a href="#contato" class="border border-white text-white px-6 py-3 rounded-full font-semibold hover:bg-white hover:text-black transition">Entre em contato</a>
+    </div>
+  </div>
+</section>
+    <div class="ring" style="--z: 0px; --rotateY: 0deg; --rotateX: 0deg; --rotateYEnd: 180deg; --rotateXEnd: 90deg;"></div>
+<div class="ring" style="--z: -30px; --rotateY: 45deg; --rotateX: 20deg; --rotateYEnd: 225deg; --rotateXEnd: 110deg;"></div>
+    <section id="sobre" class="bg-[#0a192f] text-white py-24 px-6">
+    <div class="max-w-4xl mx-auto text-center fade-up">
+        <h2 class="text-4xl font-bold mb-6">Sobre nós</h2>
+        <p class="text-lg leading-relaxed">
+            A JUMP nasce da força de quem acredita que o estudante deve ser ouvido, respeitado e representado de verdade.
+            Somos jovens com coragem para mudar e vontade de fazer a diferença. Queremos um grêmio ativo, que valorize a
+            cultura, o esporte, a inclusão e a participação de todos. Lutamos por uma escola mais justa, acolhedora e cheia 
+            de oportunidades.Se é pra mudar, que seja com união. Se é pra avançar, que seja com JUMP! 
+            Vem com a gente!
+            JUMP – Juventude Unida Por Mais Progresso!</p>
+    </div>
+    </section>
+    <section class="bg-[#0d253f] text-white py-24 px-6">
+    <div class="max-w-6xl mx-auto text-center mb-12 fade-up">
+        <h2 class="text-4xl font-bold mb-4">Coordenação</h2>
+        <p class="text-lg">Conheça nossa equipe de coordenadores</p>
+    </div>
+    <div class="overflow-x-auto whitespace-nowrap px-4 pb-4 fade-up scroll-smooth snap-x snap-mandatory">
+    <div class="inline-flex gap-6">
+        <div class="bg-white text-black rounded-xl shadow-lg w-64 flex-shrink-0">
+        <img src="Stenyo Sofia.webp" alt="Coordenador 1" class="w-full h-64 object-cover rounded-t-xl">
+        <div class="p-4">
+            <h3 class="text-xl font-semibold">Stenyo & Sophia</h3>
+            <p class="text-sm text-gray-600">Presidente & Vice Presidente</p>
+        <div class="text-center mt-4">
+        <a href="PresidenteVice.html" style="background-color: #00bfff;" class="text-white px-6 py-3 rounded-full font-semibold hover:opacity-90 transition mx-auto inline-block">Saiba Mais</a>
+        </div>
+        </div>
+        </div>
+        <div class="bg-white text-black rounded-xl shadow-lg w-64 flex-shrink-0">
+        <img src="Secretária Geral.webp" alt="Coordenador 2" class="w-full h-64 object-cover rounded-t-xl">
+        <div class="p-4">
+            <h3 class="text-xl font-semibold">Nycole Jacobina</h3>
+            <p class="text-sm text-gray-600">Secretaria Geral</p>
+            <div class="text-center mt-4">
+        <a href="Secretaria.html" style="background-color: #00bfff;" class="text-white px-6 py-3 rounded-full font-semibold hover:opacity-90 transition mx-auto inline-block">Saiba Mais</a>
+        </div>
+        </div>
+        </div>
+        <div class="bg-white text-black rounded-xl shadow-lg w-64 flex-shrink-0">
+        <img src="Coordenação Social.webp" alt="Coordenador 3" class="w-full h-64 object-cover rounded-t-xl">
+        <div class="p-4">
+            <h3 class="text-xl font-semibold">Maria Fernanda & Letícia</h3>
+            <p class="text-sm text-gray-600">Coordenação Social</p>
+            <div class="text-center mt-4">
+        <a href="Social.html" style="background-color: #00bfff;" class="text-white px-6 py-3 rounded-full font-semibold hover:opacity-90 transition mx-auto inline-block">Saiba Mais</a>
+        </div>
+        </div>
+        </div>
+        <div class="bg-white text-black rounded-xl shadow-lg w-64 flex-shrink-0">
+        <img src="Coordenação Financeira.webp" alt="Coordenador 4" class="w-full h-64 object-cover rounded-t-xl">
+        <div class="p-4">
+            <h3 class="text-xl font-semibold">Tiago Lucas</h3>
+            <p class="text-sm text-gray-600">Coordenação Financeira</p>
+            <div class="text-center mt-4">
+        <a href="Financeira.html" style="background-color: #00bfff;" class="text-white px-6 py-3 rounded-full font-semibold hover:opacity-90 transition mx-auto inline-block">Saiba Mais</a>
+        </div>
+        </div>
+        </div>
+        <div class="bg-white text-black rounded-xl shadow-lg w-64 flex-shrink-0">
+        <img src="Coordenação de Relações Acadêmicas.webp" alt="Coordenador 5" class="w-full h-64 object-cover rounded-t-xl">
+        <div class="p-4">
+            <h3 class="text-xl font-semibold">Victor & Ana Clara</h3>
+            <p class="text-sm text-gray-600">Coordenação de Relações Acadêmicas</p>
+            <div class="text-center mt-4">
+        <a href="Relações.html" style="background-color: #00bfff;" class="text-white px-6 py-3 rounded-full font-semibold hover:opacity-90 transition mx-auto inline-block">Saiba Mais</a>
+        </div>
+        </div>
+        </div>
+        <div class="bg-white text-black rounded-xl shadow-lg w-64 flex-shrink-0">
+        <img src="Coordenação de Patrimônio e Natureza.webp" alt="Coordenador 6" class="w-full h-64 object-cover rounded-t-xl">
+        <div class="p-4">
+            <h3 class="text-xl font-semibold">Gaby & Allan</h3>
+            <p class="text-sm text-gray-600">Coordenação de Patrimônio e Natureza</p>
+            <div class="text-center mt-4">
+        <a href="PatrimônioNatureza.html" style="background-color: #00bfff;" class="text-white px-6 py-3 rounded-full font-semibold hover:opacity-90 transition mx-auto inline-block">Saiba Mais</a>
+        </div>
+        </div>
+        </div>
+        <div class="bg-white text-black rounded-xl shadow-lg w-64 flex-shrink-0">
+        <img src="Coordenação de Integração.webp" alt="Coordenador 7" class="w-full h-64 object-cover rounded-t-xl">
+        <div class="p-4">
+            <h3 class="text-xl font-semibold">Maisa & Helloah</h3>
+            <p class="text-sm text-gray-600">Coordenação de Integração</p>
+            <div class="text-center mt-4">
+        <a href="Integração.html" style="background-color: #00bfff;" class="text-white px-6 py-3 rounded-full font-semibold hover:opacity-90 transition mx-auto inline-block">Saiba Mais</a>
+        </div>
+        </div>
+        </div>
+        <div class="bg-white text-black rounded-xl shadow-lg w-64 flex-shrink-0">
+        <img src="Coordenação de Eventos.webp" alt="Coordenador 8" class="w-full h-64 object-cover rounded-t-xl">
+        <div class="p-4">
+            <h3 class="text-xl font-semibold">Layzon & João Pedro</h3>
+            <p class="text-sm text-gray-600">Coordenação de Eventos</p>
+            <div class="text-center mt-4">
+            <a href="Eventos.html" style="background-color: #00bfff;" class="text-white px-6 py-3 rounded-full font-semibold hover:opacity-90 transition mx-auto inline-block">Saiba Mais</a>
+       </div>
+       </div>
+        </div>
+        <div class="bg-white text-black rounded-xl shadow-lg w-64 flex-shrink-0">
+        <img src="Coordenação de Esportes.webp" alt="Coordenador 9" class="w-full h-64 object-cover rounded-t-xl">
+        <div class="p-4">
+            <h3 class="text-xl font-semibold">Ana Cavalcante & Levi</h3>
+            <p class="text-sm text-gray-600">Coordenação de Esporte</p>
+            <div class="text-center mt-4">
+            <a href="Esporte.html" style="background-color: #00bfff;" class="text-white px-6 py-3 rounded-full font-semibold hover:opacity-90 transition mx-auto inline-block">Saiba Mais</a>
+        </div>
+        </div>
+        </div>
+        <div class="bg-white text-black rounded-xl shadow-lg w-64 flex-shrink-0">
+        <img src="Coordenação de Cultura.webp" alt="Coordenador 10" class="w-full h-64 object-cover rounded-t-xl">
+        <div class="p-4">
+            <h3 class="text-xl font-semibold">Ana Bia & Evellyn Marina</h3>
+            <p class="text-sm text-gray-600">Coordenação de Cultura</p>
+            <div class="text-center mt-4">
+            <a href="Cultura.html" style="background-color: #00bfff;" class="text-white px-6 py-3 rounded-full font-semibold hover:opacity-90 transition mx-auto inline-block">Saiba Mais</a>
+        </div>
+        </div>
+        </div>
+        <div class="bg-white text-black rounded-xl shadow-lg w-64 flex-shrink-0">
+        <img src="Coordenação de Comunicação.webp" alt="Coordenador 11" class="w-full h-64 object-cover rounded-t-xl">
+        <div class="p-4">
+            <h3 class="text-xl font-semibold">Lahecyo & Clarice Vitória</h3>
+            <p class="text-sm text-gray-600">Coordenação de Comunicação</p>
+            <div class="text-center mt-4">
+            <a href="Comunicação.html" style="background-color: #00bfff;" class="text-white px-6 py-3 rounded-full font-semibold hover:opacity-90 transition mx-auto inline-block">Saiba Mais</a>
+        </div>
+        </div>
+        </div>
+
+    </div>
+    </div>
+    </section>
+    <section class="bg-[#112240] text-white py-24 px-6">
+    <div class="max-w-4xl mx-auto text-center fade-up">
+        <h2 class="text-4xl font-bold mb-12">Propostas</h2>
+
+        <div id="proposta-content">
+        <h3 id="coord-name" class="text-2xl font-bold mb-4"></h3>
+        <p id="coord-text" class="text-lg leading-relaxed mb-8"></p>
+        </div>
+        <div class="flex justify-center items-center gap-6 mb-8">
+        <button onclick="navegarProposta(-1)" class="border border-white px-4 py-2 rounded-full hover:bg-white hover:text-black transition">
+            ← Anterior
+        </button>
+        <button onclick="navegarProposta(1)" class="border border-white px-4 py-2 rounded-full hover:bg-white hover:text-black transition">
+            Próxima →
+        </button>
+        </div>
+        <div id="barra-progresso" class="flex justify-center gap-2"></div>
+    </div>
+    </section>
+        <script>
+    const propostas = [
+        { nome: "Coordenação de Esportes", texto: "Chegou a hora de levantar a bandeira e mostrar quem manda no esporte! Vem aí 3 Intercursos, um Interescolar pra levar o nome do IFPI além dos muros e a nossa tão esperada Copa IFPI." },
+        { nome: "Coordenação de Cultura", texto: "A cultura pulsa no IFPI, e a gente quer dar voz a ela. Vamos celebrar a resistência no Dia da Consciência Negra, exaltar nossas raízes no Dia do Piauí, levar arte com cinema para os alunos e transformar o campus com exposições no 7 de setembro. Porque cultura não é só matéria — é identidade, é poder, é o nosso jeito de existir." },
+        { nome: "Coordenação de Eventos", texto: "FlowFest vem com tudo! Teremos três edições imperdíveis: a clássica, a versão Halloween e a tão sonhada edição Carnaval Fora de Época. Porque o nosso calendário tem que ter mais que provas: tem que ter memória boa!" },
+        { nome: "Coordenação Social", texto: "A gente acredita que pequenas ações mudam o mundo. Por isso, vamos organizar campanhas de doação de alimentos, incentivar a doação de sangue pelo HEMOPI, promover o Correio do Amor pra espalhar carinho, e realizar encontros diretos com o Grêmio pra ouvir, acolher e caminhar junto com cada estudante." },
+        { nome: "Coordenação de Relações Acadêmicas", texto: "Sabemos como é difícil se preparar sozinho. Por isso, vamos oferecer aulões de redação, reforçar o conteúdo com aulões das outras áreas do ENEM, realizar simulados pra treinar de verdade, e te dar todo o suporte na hora de fazer inscrição no ENEM e concursos militares. Tamo junto do início ao fim!" },
+        { nome: "Coordenação de Comunicação", texto: "Você merece saber tudo o que acontece no seu campus! Vamos montar um calendário atualizado de eventos, abrir um formulário de reclamações e sugestões, e registrar cada momento especial nos eventos do Grêmio. Comunicação clara, leve e acessível, do seu jeito." },
+        { nome: "Coordenação de Patrimônio e Natureza", texto: "Vamos olhar com carinho para o nosso campus: promover ações ambientais conscientes, montar uma lista de melhorias e reajustes com base na opinião de todos e apoiar a causa animal com doações para a Ecocats, usando parte da arrecadação dos eventos. Porque estudar num lugar melhor é responsabilidade de todos nós." },
+        { nome: "Coordenação de Integração", texto: "Queremos um IFPI unido. Vamos exibir filmes que ajudam no repertório da redação, realizar um grande Festival de Talentos e Cultura, promover eventos de conscientização sobre temas importantes e organizar uma Gincana especial no aniversário do campus. Integração é mais que juntar gente, é criar laços!" },
+    ];
+
+    let indiceAtual = 0;
+
+    function atualizarProposta() {
+        const proposta = propostas[indiceAtual];
+        document.getElementById("coord-name").textContent = proposta.nome;
+        document.getElementById("coord-text").textContent = proposta.texto;
+
+        const barra = document.getElementById("barra-progresso");
+        barra.innerHTML = propostas.map((_, index) => `
+        <span class="w-3 h-3 rounded-full ${index === indiceAtual ? 'bg-white' : 'bg-white/30'} inline-block"></span>
+        `).join('');
+    }
+
+    function navegarProposta(direcao) {
+        indiceAtual += direcao;
+        if (indiceAtual < 0) indiceAtual = propostas.length - 1;
+        if (indiceAtual >= propostas.length) indiceAtual = 0;
+        atualizarProposta();
+    }
+
+    atualizarProposta();
+    </script>
+    <section id="contato" class="bg-[#0b1e35] text-white py-24 px-6">
+    <div class="max-w-4xl mx-auto text-center fade-up">
+        <h2 class="text-4xl font-bold mb-12">Entre em contato</h2>
+
+        <form action="https://formspree.io/f/myzwqoon" method="POST" class="space-y-6 text-left max-w-xl mx-auto">
+        <div>
+            <label for="nome" class="block mb-2 text-sm font-medium">Nome</label>
+            <input type="text" id="nome" name="nome" class="w-full px-4 py-3 rounded-lg bg-white text-black focus:outline-none focus:ring-2 focus:ring-blue-400" placeholder="Seu nome" required>
+        </div>
+
+        <div>
+            <label for="email" class="block mb-2 text-sm font-medium">E-mail</label>
+            <input type="email" id="email" name="email" class="w-full px-4 py-3 rounded-lg bg-white text-black focus:outline-none focus:ring-2 focus:ring-blue-400" placeholder="seu@email.com" required>
+        </div>
+
+        <div>
+            <label for="mensagem" class="block mb-2 text-sm font-medium">Mensagem</label>
+            <textarea id="mensagem" name="mensagem" rows="5" class="w-full px-4 py-3 rounded-lg bg-white text-black focus:outline-none focus:ring-2 focus:ring-blue-400" placeholder="Escreva sua mensagem aqui..." required></textarea>
+        </div>
+
+        <div class="text-center">
+            <button type="submit" class="bg-white text-black px-6 py-3 rounded-full font-semibold hover:bg-gray-200 transition">Enviar</button>
+        </div>
+        <!-- Mensagem de sucesso (inicialmente oculta) -->
+        <div id="mensagem-sucesso" class="hidden text-green-400 text-center font-semibold mt-6 animate-fade-in">
+        ✅ Mensagem enviada com sucesso!
+        </div>
+        </form>
+    </div>
+    </section>
+    <script>
+    const container = document.querySelector('.blackhole');
+    const totalRings = 2;
+    const spacing = 5;
+    for (let i = 0; i < totalRings; i++) {
+        const ring = document.createElement('div');
+        ring.className = 'ring';
+        const z = -i * spacing;
+        const angle = (i / totalRings) * 360;
+        ring.style.setProperty('--z', `${z}px`);
+        ring.style.setProperty('--rotateY', `${angle}deg`);
+        ring.style.setProperty('--rotateX', `${angle / 2}deg`);
+        ring.style.setProperty('--rotateYEnd', `${angle + 180}deg`);
+        ring.style.setProperty('--rotateXEnd', `${(angle / 2) + 90}deg`);
+        container.appendChild(ring);
+    }
+        const form = document.querySelector("form");
+        const mensagemSucesso = document.getElementById("mensagem-sucesso");
+        form.addEventListener("submit", async (e) => {
+            e.preventDefault(); 
+            const data = new FormData(form);
+            const resposta = await fetch(form.action, {
+            method: "POST",
+            body: data,
+            headers: {
+                Accept: "application/json",
+            },
+            });
+            if (resposta.ok) {
+            mensagemSucesso.classList.remove("hidden"); 
+            form.reset();
+            setTimeout(() => {
+                mensagemSucesso.classList.add("hidden");
+            }, 4000);
+            } else {
+            alert("Erro ao enviar. Tente novamente mais tarde.");
+            }
+        });
+    </script>
+    <footer class="bg-[#0a192f] text-white py-6">
+        <div class="max-w-4xl mx-auto text-center">
+            <p class="text-sm">© 2025 JUMP. Todos os direitos reservados.</p>
+            <p class="text-sm mt-2">Desenvolvido por <a href="https://www.instagram.com/nicks.zkl/" class="text-blue-400 hover:underline">NICKS</a></p>
+        </div>
+</body>
+</html>
+
